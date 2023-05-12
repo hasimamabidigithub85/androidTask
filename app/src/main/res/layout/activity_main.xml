@@ -17,7 +17,12 @@
         android:layout_alignParentTop="true"
         />
 
-
+<!--    <com.aankalan.utils.TouchDetectableScrollView-->
+<!--        android:id="@+id/rewardScrollView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:fillViewport="false"-->
+<!--        >-->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -41,4 +46,5 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"></include>
     </RelativeLayout>
+<!--    </com.aankalan.utils.TouchDetectableScrollView>-->
 </LinearLayout>

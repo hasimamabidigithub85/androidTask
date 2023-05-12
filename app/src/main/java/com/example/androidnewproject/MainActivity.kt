@@ -3,9 +3,11 @@ package com.example.androidtask
 
 import android.os.Bundle
 import android.view.View
+import android.widget.AbsListView
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.aankalan.utils.TouchDetectableScrollView
 import com.example.androidnewproject.R
 import com.example.androidnewproject.databinding.ActivityMainBinding
 import com.example.androidtask.Adapter.MyAdapter
@@ -19,7 +21,7 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     var binding: ActivityMainBinding? = null
-
+    var rewardScrollView: TouchDetectableScrollView? = null
     var myAdapter: MyAdapter? = null
     var arrayList: java.util.ArrayList<LanguageModel.Search> =
         java.util.ArrayList<LanguageModel.Search>()
