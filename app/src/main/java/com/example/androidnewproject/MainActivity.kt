@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.cliffex.qaaf.Utility.AppUtility
 
 import com.example.androidnewproject.R
 import com.example.androidnewproject.databinding.ActivityMainBinding
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
         setupViewModel()
 
 
+
+        if(AppUtility.isNetworkAvailable(applicationContext,true))
         LoginApi("Marvel")
 
 
@@ -151,14 +154,7 @@ class MainActivity : AppCompatActivity() {
 
                                 binding!!.relativeProgressDialog.progressCircular.visibility= View.GONE
 
-//                                Snackbar.make(
-//                                    binding!!.relativeLayoutSnackBar,
-//                                    finalData.jsonObject!!.getString("message")+"",
-//                                    Snackbar.LENGTH_SHORT
-//                                ).setBackgroundTint(Color.BLACK)
-//                                    .setTextColor(Color.WHITE)
-//                                    .setDuration(1000)
-//                                    .show()
+
 
                             } catch (e: JSONException) {
                                 e.printStackTrace()
