@@ -22,7 +22,7 @@ class SearchApiRepository {
 
         var registerUsers: MutableLiveData<Resource<LanguageModel>>? = null
 
-        fun getMovieListApi(): MutableLiveData<Resource<LanguageModel>>? {
+        fun getMovieListApi(title:String): MutableLiveData<Resource<LanguageModel>>? {
 
                 if (registerUsers == null) {
                         registerUsers = MutableLiveData<Resource<LanguageModel>>()
@@ -42,7 +42,7 @@ class SearchApiRepository {
 //                                        )
                                         val jsonObjectCall: Call<LanguageModel>
                                         try {
-                                                jsonObjectCall = APIClient.getClient.getMovieListApi("b9bd48a6","Marvel","movie")
+                                                jsonObjectCall = APIClient.getClient.getMovieListApi("b9bd48a6",title,"movie")
 
                                                 jsonObjectCall.enqueue(object : Callback<LanguageModel> {
                                                         override fun onResponse(

@@ -14,8 +14,8 @@ class VideoViewActivityViewModel() : ViewModel() {
         repository = SearchApiRepository()
     }
 
-    fun getMovieListApi(): MutableLiveData<Resource<LanguageModel>>? {
-        return repository?.getMovieListApi()
+    fun getMovieListApi(strTitle:String): MutableLiveData<Resource<LanguageModel>>? {
+        return repository?.getMovieListApi(strTitle)
     }
 
 }

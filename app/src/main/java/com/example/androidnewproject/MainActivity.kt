@@ -34,18 +34,23 @@ class MainActivity : AppCompatActivity() {
 
 
         setupViewModel()
-        LoginApi()
+
+
+        LoginApi("Marvel")
+
 
         binding!!.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
 
 
-                val liveTestListback: java.util.ArrayList<LanguageModel.Search>? =
-                    searchKeywordInExam(
-                        query!!
-                    )
+//                val liveTestListback: java.util.ArrayList<LanguageModel.Search>? =
+//                    searchKeywordInExam(
+//                        query!!
+//                    )
 
-                setData(liveTestListback!!)
+//                setData(liveTestListback!!)
+
+                  LoginApi(query!!)
 
 
 //                for (i in 0 until arrayList.size) {
@@ -64,14 +69,13 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
 
-                val liveTestListback: java.util.ArrayList<LanguageModel.Search>? =
-                    searchKeywordInExam(
-                        newText!!
-                    )
-                setData(liveTestListback!!)
-//                myAdapter!!.notifyDataSetChanged()
-//                  val liveTestListback: ArrayList<LanguageModel.Search>? =
-//                    searchKeywordInExam(newText)
+//                val liveTestListback: java.util.ArrayList<LanguageModel.Search>? =
+//                    searchKeywordInExam(
+//                        newText!!
+//                    )
+//                setData(liveTestListback!!)
+
+//                LoginApi(newText!!)
                 return false
             }
         })
@@ -103,9 +107,9 @@ class MainActivity : AppCompatActivity() {
         return liveTestListback
     }
 
-    private fun LoginApi() {
+    private fun LoginApi(strTitle:String) {
         binding!!.relativeProgressDialog.progressCircular.visibility= View.VISIBLE
-        viewModel.getMovieListApi()!!
+        viewModel.getMovieListApi(strTitle)!!
             .observe(this) { finalData ->
                 if(finalData!=null){
                     when (finalData.status) {
@@ -120,10 +124,14 @@ class MainActivity : AppCompatActivity() {
 //                                    Prefs.instanceOf(applicationContext).userName= finalData.data.get(0).data!!.firstName.toString()
 //                                }
 
-                                arrayList.clear()
-                                arrayList.addAll(finalData.data.search!!)
+                                if(finalData.data.search!=null){
+                                    arrayList.clear()
+                                    arrayList.addAll(finalData.data.search!!)
 
-                                setData(arrayList)
+                                    setData(arrayList)
+                                }
+
+
 //                                Snackbar.make(
 //                                    binding!!.constLayout1,
 //                                    finalData.data.search.toString()+"",
